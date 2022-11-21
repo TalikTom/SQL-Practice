@@ -1,5 +1,5 @@
 drop database if exists edunovapp26;
-create database edunovapp26 default charset utfmb4;
+create database edunovapp26 default charset utf8mb4;
 use edunovapp26;
 
 create table smjer(
