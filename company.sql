@@ -27,4 +27,25 @@ create table title(
     title varchar(50),
     from_date date,
     to_date date
-)
+);
+
+create table dept_manager(
+    departments int,
+    employees int,
+    from_date date,
+    to_date date
+);
+
+create tables dept_emp(
+    departments int,
+    employees int,
+    from_date date,
+    to_date date
+);
+
+
+alter table dept_manager add foreign key (departments) references departments(id);
+alter table dept_manager add foreign key (employees) references employees(id);
+
+alter table dept_emp add foreign key (departments) references departments(id);
+alter table dept_emp add foreign key (employees) references employees(id);
