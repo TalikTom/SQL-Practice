@@ -19,14 +19,16 @@ create table salaries(
     id int not null auto_increment primary key,
     salary decimal(13,2),
     from_date date,
-    to_date date
+    to_date date,
+    employees int
 );
 
 create table title(
     id int not null auto_increment primary key,
     title varchar(50),
     from_date date,
-    to_date date
+    to_date date,
+    employees int
 );
 
 create table dept_manager(
@@ -49,3 +51,6 @@ alter table dept_manager add foreign key (employees) references employees(id);
 
 alter table dept_emp add foreign key (departments) references departments(id);
 alter table dept_emp add foreign key (employees) references employees(id);
+
+alter table title add foreign key (employees) references employees(id);
+alter table salaries add foreign key (employees) references employees(id);
