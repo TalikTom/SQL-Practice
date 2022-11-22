@@ -12,3 +12,12 @@ create table comments(
     body text,
     post_id int not null
 );
+
+alter table comments add foreign key(post_id) references posts(id);
+
+
+insert into posts(title)
+values('My First Post');
+
+insert into comments(body, post_id)
+values('Lorem ipsum ante gipsum', 1);
