@@ -20,7 +20,7 @@ create table salaries(
     salary decimal(13,2),
     from_date date,
     to_date date,
-    employees int
+    employees int not null
 );
 
 create table title(
@@ -28,19 +28,19 @@ create table title(
     title varchar(50),
     from_date date,
     to_date date,
-    employees int
+    employees int not null
 );
 
 create table dept_manager(
-    departments int,
-    employees int,
+    departments int not null,
+    employees int not null,
     from_date date,
     to_date date
 );
 
 create table dept_emp(
-    departments int,
-    employees int,
+    departments int not null,
+    employees int not null,
     from_date date,
     to_date date
 );
