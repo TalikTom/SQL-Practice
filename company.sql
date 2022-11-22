@@ -36,7 +36,7 @@ create table dept_manager(
     to_date date
 );
 
-create tables dept_emp(
+create table dept_emp(
     departments int,
     employees int,
     from_date date,
