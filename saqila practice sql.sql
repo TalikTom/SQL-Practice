@@ -10,7 +10,7 @@ on store.address_id = address.address_id;
 
 --Aggregate data using count function and group by command
 
-select customer.customer_id, customer.first_name, customer.last_name, count(rental.rental_id)
+select customer.customer_id, customer.first_name, customer.last_name, count(rental.rental_id) rentals_checked_out
 from customer
 left join rental
 on rental.customer_id  = customer.customer_id
