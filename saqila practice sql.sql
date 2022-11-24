@@ -6,3 +6,12 @@
 select * from store
 right join address 
 on store.address_id = address.address_id;
+
+
+--Aggregate data using count function and group by command
+
+select customer.customer_id, customer.first_name, customer.last_name, count(rental.rental_id)
+from customer
+left join rental
+on rental.customer_id  = customer.customer_id
+group by customer.customer_id;
