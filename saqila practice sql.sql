@@ -15,3 +15,22 @@ from customer
 left join rental
 on rental.customer_id  = customer.customer_id
 group by customer.customer_id;
+
+
+--Multiple joins in one query
+
+select 
+	customer.customer_id, 
+	customer.first_name, 
+	customer.last_name, 
+	count(rental.rental_id),
+	address.address as store_address
+from customer
+left join rental
+on rental.customer_id  = customer.customer_id
+left join address 
+on address.address_id = (
+	select address_id from store where store.store_id = customer.store_id 	
+)
+group by customer.customer_id, address.address;
+
