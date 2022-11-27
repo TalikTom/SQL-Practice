@@ -27,11 +27,13 @@ select * from staff
 where first_name = 'Jon'
 or first_name = 'Mike';
 
---order
+--order, order reverse
 
 select * from actor
 order by first_name;
 
+select * from actor
+order by first_name desc;
 
 
 
