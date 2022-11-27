@@ -7,6 +7,35 @@ select * from store
 right join address 
 on store.address_id = address.address_id;
 
+--select distinct
+
+select distinct customer_id from rental;
+
+--select where
+
+select * from film
+where length > 80 and length < 90;
+
+--not
+
+select * from staff
+where not first_name = 'Mike';
+
+--or
+
+select * from staff
+where first_name = 'Jon'
+or first_name = 'Mike';
+
+--order
+
+select * from actor
+order by first_name;
+
+
+
+
+
 
 --Aggregate data using count function and group by command
 
