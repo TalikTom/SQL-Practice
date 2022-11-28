@@ -13,7 +13,8 @@ create table pacijent (
     ime varchar(50),
     prezime varchar(50),
     adresa varchar(255),
-    oib char(11)
+    oib char(11),
+    doktor_id int
 );
 
 create table doktor (
@@ -21,18 +22,22 @@ create table doktor (
     ime varchar(50),
     prezime varchar(50),
     specijalizacija varchar(50),
-    oib char(11)
+    oib char(11),
+    odjel_id int
 );
 
 create table medicinski_karton (
     medicinski_karton_id int not null auto_increment primary key,
     datum_pregleda datetime,
-    dijagnoza varchar(255)
+    dijagnoza varchar(255),
+    pacijent_id int
 );
 
 create table posjeta (
     posjeta_id int not null auto_increment primary key,
-    datum datetime
+    datum datetime,
+    pacijent_id int,
+    posjetitelj_id int
 );
 
 create table posjetitelj (
@@ -43,3 +48,11 @@ create table posjetitelj (
     telefonski_broj int
 );
 
+alter table pacijent add foreign key (doktor_id) references doktor(doktor_id);
+
+alter table posjeta add foreign key (pacijent_id) references pacijent(pacijent_id);
+alter table posjeta add foreign key (posjetitelj_id) references posjetitelj(posjetitelj_id);
+
+alter table medicinski_karton add foreign key (pacijent_id) references pacijent(pacijent_id);
+
+alter table doktor add foreign key (odjel_id) references odjel(odjel_id);
