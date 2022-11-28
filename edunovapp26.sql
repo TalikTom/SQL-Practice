@@ -2,6 +2,8 @@ drop database if exists edunovapp26;
 create database edunovapp26 default charset utf8mb4;
 use edunovapp26;
 
+-- c:\xampp\mysql\bin\mysql -uroot --default_character_set=utf8 < C:\Users\dell\Documents\EdunovaPP26\SQL\skriptapp26.sql
+
 create table smjer(
     sifra int not null primary key auto_increment,
     naziv varchar(50) not null,
