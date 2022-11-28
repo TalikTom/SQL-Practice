@@ -17,7 +17,7 @@ create table pacijent (
 );
 
 create table doktor (
-    doktor_id pacijent_id int not null auto_increment primary key,
+    doktor_id int not null auto_increment primary key,
     ime varchar(50),
     prezime varchar(50),
     specijalizacija varchar(50),
@@ -27,7 +27,7 @@ create table doktor (
 create table medicinski_karton (
     medicinski_karton_id int not null auto_increment primary key,
     datum_pregleda datetime,
-    dijagnoza varchar(255),
+    dijagnoza varchar(255)
 );
 
 create table posjeta (
