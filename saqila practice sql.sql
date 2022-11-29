@@ -50,20 +50,16 @@ group by customer.customer_id;
 
 --Multiple joins in one query
 
-select 
-	customer.customer_id, 
-	customer.first_name, 
-	customer.last_name, 
-	count(rental.rental_id),
-	address.address as store_address
-from customer
-left join rental
-on rental.customer_id  = customer.customer_id
-left join store 
-on store.store_id = customer.store_id
-left join address
-on address.address_id = store.address_id 
-group by customer.customer_id, address.address;
+select a.customer_id, a.first_name, a.last_name, count(b.rental_id), d.address
+from customer a
+left join rental b
+on b.customer_id = a.customer_id
+left join store c
+on c.store_id = a.store_id
+left join address d
+on d.address_id = c.address_id
+group by a.customer_id
+
 
 --U kojim je sve filmovima glumio BURT POSEY
 
