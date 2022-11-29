@@ -1,0 +1,10 @@
+--izabrati ime i prezime autora, mjesto i ime izdavaca
+
+select concat(a.ime, ' ',a.prezime), c.naziv, d.naziv
+from autor a
+inner join katalog b
+on a.sifra = b.autor
+inner join mjesto c 
+on c.sifra = b.mjesto
+inner join izdavac d 
+on d.sifra = b.izdavac;
