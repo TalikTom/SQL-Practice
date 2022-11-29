@@ -8,3 +8,16 @@ inner join mjesto c
 on c.sifra = b.mjesto
 inner join izdavac d 
 on d.sifra = b.izdavac;
+
+--izlistati sve naslove knjiga i nazive mjesta u kojima je izdana knjiga ciji je autor rodjen 1976 i izdavac je jos uvijek aktivan
+
+select a.naslov, b.naziv
+from katalog a
+inner join mjesto b
+on a.mjesto = b.sifra
+inner join izdavac c
+on a.izdavac = c.sifra
+inner join autor d
+on a.autor = d.sifra
+where c.aktivan = 1
+and d.datumrodenja between '01-01-1976' and '1976-12-31';
