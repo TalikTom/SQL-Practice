@@ -65,5 +65,17 @@ left join address
 on address.address_id = store.address_id 
 group by customer.customer_id, address.address;
 
+--U kojim je sve filmovima glumio BURT POSEY
+
+select concat(c.first_name, ' ', c.last_name), a.title
+from film a
+inner join film_actor b
+on a.film_id = b.film_id
+inner join actor c
+on c.actor_id = b.actor_id
+where c.first_name = 'Burt'
+and c.last_name = 'Posey';
+
+
 
 
