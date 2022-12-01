@@ -137,3 +137,6 @@ values (3,1);
 
 update cura
 set gustoca = 15.77;
+
+delete from mladic
+where kuna > 15.78;
