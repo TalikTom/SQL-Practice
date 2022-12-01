@@ -65,7 +65,8 @@ create table cura (
     lipa decimal(13,10),
     oglica int not null,
     bojakose varchar(38),
-    suknja varchar(36)
+    suknja varchar(36),
+    punac int
 );
 
 create table sestra_svekar (
@@ -76,7 +77,7 @@ create table sestra_svekar (
 
 alter table zena add foreign key(sestra) references sestra(sifra);
 alter table muskarac add foreign key(zena) references zena(sifra);
-alter table mladic add foreign key(mladic) references muskarac(sifra);
+alter table mladic add foreign key(muskarac) references muskarac(sifra);
 
 alter table sestra_svekar add foreign key(svekar) references svekar(sifra);
 alter table sestra_svekar add foreign key(sestra) references sestra(sifra);
