@@ -159,3 +159,8 @@ on f.muskarac = e.sifra
 where d.hlace like 'a%'
 and c.haljina like '%ba%'
 order by e.hlace desc;
+
+select c.haljina, c.maraka 
+from sestra c
+where not exists
+(select * from sestra_svekar where sestra_svekar.sestra = c.sifra);
