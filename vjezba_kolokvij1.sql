@@ -134,3 +134,6 @@ values (2,2);
 
 insert into sestra_svekar (svekar, sestra)
 values (3,1);
+
+update cura
+set gustoca = 15.77;
