@@ -7,7 +7,8 @@ create table sestra(
     introvertno bit,
     haljina varchar(31) not null,
     maraka decimal(16,6),
-    hlace varchar(46)
+    hlace varchar(46),
+    narukvica int not null
 );
 
 create table punac (
@@ -85,3 +86,51 @@ alter table sestra_svekar add foreign key(sestra) references sestra(sifra);
 alter table cura add foreign key(punac) references punac(sifra);
 
 
+select * from sestra;
+
+insert into sestra(haljina, hlace, narukvica)
+values ('plava', 'somotne', 31);
+
+insert into sestra(haljina, hlace, narukvica)
+values ('crvena', 'levis', 12);
+
+insert into sestra(haljina, hlace, narukvica)
+values ('crvena', 'jeans', 11);
+
+insert into zena (kratkamajica, jmbag, bojaociju, sestra)
+values ('crvena', 12512514351, 'pink', 1);
+
+insert into zena (kratkamajica, jmbag, bojaociju, sestra)
+values ('plava', 14512513351, 'roza', 2);
+
+insert into zena (kratkamajica, jmbag, bojaociju, sestra)
+values ('zelena', 12512523351, 'lila', 3);
+
+insert into muskarac (bojaociju, maraka, zena)
+values ('bijele', 1.5, 1);
+
+insert into muskarac (bojaociju, maraka, zena)
+values ('plave', 1.2, 2);
+
+insert into muskarac (bojaociju, maraka, zena)
+values ('bijele', 1.2, 3);
+
+select * from sestra_svekar;
+
+insert into svekar (bojaociju, prstena, eura)
+values ('plava', 3, 12.5);
+
+insert into svekar (bojaociju, prstena, eura)
+values ('plava', 3, 13.5);
+
+insert into svekar (bojaociju, prstena, eura)
+values ('plava', 3, 12.5);
+
+insert into sestra_svekar (svekar, sestra)
+values (1,1);
+
+insert into sestra_svekar (svekar, sestra)
+values (2,2);
+
+insert into sestra_svekar (svekar, sestra)
+values (3,1);
