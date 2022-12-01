@@ -140,3 +140,6 @@ set gustoca = 15.77;
 
 delete from mladic
 where kuna > 15.78;
+
+select kratkamajica from zena
+where hlace like '%ana%';
