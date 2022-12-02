@@ -144,3 +144,7 @@ on f.neprijatelj = e.sifra
 where d.drugiputa is not null
 and c.vesta like '%ba%'
 order by e.haljina desc;
+
+select a.vesta, a.asocijalno from decko a
+where not exists
+(select * from decko_zarucnica b  where b.decko = a.sifra);
