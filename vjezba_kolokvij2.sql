@@ -122,3 +122,6 @@ values ('plave', 'kockaste', 15.7, 3);
 
 update prijatelj
 set treciputa = '2020-04-30';
+
+delete from brat
+where not ogrlica = 14;
