@@ -128,3 +128,19 @@ where not ogrlica = 14;
 
 select suknja from cura
 where drugiputa is null;
+
+select a.novcica, f.neprijatelj, e.haljina
+from zarucnica a
+inner join decko_zarucnica b
+on a.sifra = b.zarucnica
+inner join decko c
+on c.sifra = b.decko 
+inner join cura d 
+on d.decko = c.sifra 
+inner join neprijatelj e
+on e.cura = d.sifra 
+inner join brat f 
+on f.neprijatelj = e.sifra
+where d.drugiputa is not null
+and c.vesta like '%ba%'
+order by e.haljina desc;
