@@ -119,3 +119,6 @@ insert into neprijatelj (haljina, modelnaocala, kuna, cura)
 values ('plave', 'kockaste', 15.3, 2);
 insert into neprijatelj (haljina, modelnaocala, kuna, cura)
 values ('plave', 'kockaste', 15.7, 3);
+
+update prijatelj
+set treciputa = '2020-04-30';
