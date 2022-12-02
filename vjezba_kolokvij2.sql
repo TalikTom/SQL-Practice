@@ -125,3 +125,6 @@ set treciputa = '2020-04-30';
 
 delete from brat
 where not ogrlica = 14;
+
+select suknja from cura
+where drugiputa is null;
