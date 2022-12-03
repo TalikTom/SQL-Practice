@@ -78,3 +78,38 @@ alter table prijatelj_brat add foreign key (prijatelj) references prijatelj(sifr
 alter table ostavljena add foreign key (prijatelj) references prijatelj(sifra);
 alter table snasa add foreign key (ostavljena) references ostavljena(sifra);
 alter table punica add foreign key (snasa) references snasa(sifra);
+
+insert into prijatelj (haljina, indiferentno)
+values('crvena', 1);
+insert into prijatelj (haljina, indiferentno)
+values('plava', 0);
+insert into prijatelj (haljina, indiferentno)
+values('crvena', 0);
+
+insert into brat (ogrlica, ekstroventno)
+values(123, 1);
+insert into brat (ogrlica, ekstroventno)
+values(1223, 0);
+insert into brat (ogrlica, ekstroventno)
+values(1213, 1);
+
+insert into ostavljena(modelnaocala, prijatelj)
+values('kockaste', 1);
+insert into ostavljena(modelnaocala, prijatelj)
+values('okrugle', 2);
+insert into ostavljena(modelnaocala, prijatelj)
+values('kockaste', 1);
+
+insert into prijatelj_brat (prijatelj, brat)
+values(1,1);
+insert into prijatelj_brat (prijatelj, brat)
+values(1,2);
+insert into prijatelj_brat (prijatelj, brat)
+values(2,1);
+
+insert into snasa (kuna, eura, ostavljena)
+values(12.4,51.2,1);
+insert into snasa (kuna, eura, ostavljena)
+values(12.44,51.22,2);
+insert into snasa (kuna, eura, ostavljena)
+values(12.24,52.2,1);
