@@ -139,3 +139,9 @@ where not d.lipa = 91
 and where a.haljina like '%ba%'
 order by e.kuna desc;
 
+select a.haljina, a.lipa
+from prijatelj a
+where not exists
+(select * from prijatelj_brat b  
+where b.prijatelj = a.sifra);
+
