@@ -113,3 +113,29 @@ insert into snasa (kuna, eura, ostavljena)
 values(12.44,51.22,2);
 insert into snasa (kuna, eura, ostavljena)
 values(12.24,52.2,1);
+
+update svekar
+set suknja = 'Osijek';
+
+delete * from punica
+where kratkamajica = 'AB';
+
+select majica from ostavljena
+where majica not in (9,10,20,30,35);
+
+select c.ekstroventno, f.vesta, e.kuna
+from prijatelj a
+inner join prijatelj_brat b
+on a.sifra = b.prijatelj
+inner join brat c
+on c.sifra = b.brat
+inner join ostavljena d
+on a.sifra = d.prijatelj
+inner join snasa e
+on d.sifra = e.ostavljena
+inner join punica f
+on e.sifra = f.snasa
+where not d.lipa = 91
+and where a.haljina like '%ba%'
+order by e.kuna desc;
+
