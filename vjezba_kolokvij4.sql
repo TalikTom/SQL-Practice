@@ -79,3 +79,73 @@ alter table prijatelj add foreign key(becar) references becar(sifra);
 
 alter table zena_mladic add foreign key(mladic) references mladic(sifra);
 alter table zena_mladic add foreign key(zena) references zena(sifra);
+
+
+
+insert into zena (suknja, prstena)
+values('osijek', 12);
+insert into zena (suknja, prstena)
+values('osijek2', 122);
+insert into zena (suknja, prstena)
+values('osijek1', 122);
+
+insert into mladic (vesta)
+values('ponkovci');
+insert into mladic (vesta)
+values('ponkovci2');
+insert into mladic (vesta)
+values('ponkovci3');
+
+insert into zena_mladic(zena, mladic)
+values(1,2);
+insert into zena_mladic(zena, mladic)
+values(1,1);
+insert into zena_mladic(zena, mladic)
+values(2,2);
+
+insert into snasa(haljina, zena)
+values('cepin', 1);
+insert into snasa(haljina, zena)
+values('cepin3', 2);
+insert into snasa(haljina, zena)
+values('cepin2', 1);
+
+insert into becar (kratkamajica, bojaociju, snasa)
+values('sivo','plavo',1);
+insert into becar (kratkamajica, bojaociju, snasa)
+values('sivo','plavo',2);
+insert into becar (kratkamajica, bojaociju, snasa)
+values('sivo','plavo',1);
+
+//u tablici punac postavite svim zapisima kolonu majica na vrijednost Osijek
+
+update punac
+set majica = 'Osijek';
+
+delete * from prijatelj
+where prstena > 17;
+
+select haljina from snasa
+where treciputa is null;
+
+select c.nausnica, f.jmbag, e.kratkamajica
+from zena a
+inner join zena_mladic b
+on a.sifra = b.zena
+inner join mladic c
+on c.sifra = b.mladic
+inner join snasa d
+on a.sifra = d.zena
+inner join becar e
+on d.sifra = e.snasa
+inner join prijatelj f
+on e.sifra = f.becar
+where d.treciput is not null
+and not a.lipa = 29
+order by e.kratkamajica desc;
+
+select a.lipa, a.prstena
+from zena a
+left join zena_mladic b
+on a.sifra = b.zena
+where b.mladic is null;
