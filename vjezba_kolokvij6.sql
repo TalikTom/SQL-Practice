@@ -75,3 +75,72 @@ create table decko (
     zena int not null,
     foreign key (zena) references zena(sifra)
 );
+
+
+insert into prijatelj (prstena, stilfrizura)
+values(12, 'nakratko');
+insert into prijatelj (prstena, stilfrizura)
+values(13, 'nakratko2');
+insert into prijatelj (prstena, stilfrizura)
+values(11, 'nakratko3');
+
+insert into ostavljena (prviputa, kratkamajica)
+values(2022-01-01, 'crvena');
+
+insert into ostavljena (prviputa, kratkamajica)
+values(2022-01-02, 'crvena2');
+
+insert into ostavljena (prviputa, kratkamajica)
+values(2022-01-03, 'crvena3');
+
+insert into prijatelj_ostavljena(prijatelj, ostavljena)
+values(1,1);
+insert into prijatelj_ostavljena(prijatelj, ostavljena)
+values(1,2);
+insert into prijatelj_ostavljena(prijatelj, ostavljena)
+values(2,1);
+
+insert into brat (nausnica, treciputa, narukvica, prijatelj)
+values (11, 2021-01-01, 51, 1);
+insert into brat (nausnica, treciputa, narukvica, prijatelj)
+values (112, 2021-01-01, 52, 2);
+insert into brat (nausnica, treciputa, narukvica, prijatelj)
+values (111, 2021-01-01, 53, 1);
+
+insert into zena (novcica, narukvica, dukserica, brat)
+values(11.2,11, 'plava', 1);
+insert into zena (novcica, narukvica, dukserica, brat)
+values(11.2,11, 'plava', 2);
+insert into zena (novcica, narukvica, dukserica, brat)
+values(11.2,11, 'plava', 1);
+
+update svekrva
+set suknja = 'Osijek';
+
+delete from decko
+where modelnaocala < 'AB';
+
+select narukvica from brat 
+where treciputa is null;
+
+select a.drugiputa, f.zena, e.narukvica
+from ostavljena a
+inner join prijatelj_ostavljena b
+on a.sifra = b.prijatelj
+inner join prijatelj c
+on c.sifra = b.prijatelj
+inner join brat d
+on d.prijatelj = c.sifra
+inner join zena e
+on e.brat = d.sifra
+inner join decko f
+on f.zena = e.sifra
+where d.treciputa is not null 
+and c.prstena = 219
+order by e.narukvica desc;
+
+select a.prstena, a.introvertno
+from prijatelj a 
+inner join prijatelj_ostavljena b
+where not a.sifra = b.prijatelj;
+

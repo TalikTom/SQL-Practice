@@ -120,7 +120,7 @@ values('crvene', 12, 'pulo','luxoria',2022-01-01,1);
 update mladic
 set haljina = 'Osijek';
 
-delete * from ostavljena
+delete from ostavljena
 where ogrlica = 17;
 
 select majica from punac
@@ -142,8 +142,8 @@ where d.prviputa is not null
 and c.majica like '%ba%'
 order by e.nausnica desc;
 
-select a.majica, a.carape
-from svekar a
-inner join svekar_cura b 
-on b.svekar = a.sifra 
-where b.svekar is null;
+select a.prstena, a.introvertno
+from prijatelj a 
+inner join prijatelj_ostavljena b
+on b.prijatelj = a.sifra
+where b.prijatelj is null;

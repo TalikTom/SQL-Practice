@@ -122,7 +122,7 @@ values('sivo','plavo',1);
 update punac
 set majica = 'Osijek';
 
-delete * from prijatelj
+delete from prijatelj
 where prstena > 17;
 
 select haljina from snasa

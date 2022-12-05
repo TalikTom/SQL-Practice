@@ -117,7 +117,7 @@ values(12.24,52.2,1);
 update svekar
 set suknja = 'Osijek';
 
-delete * from punica
+delete from punica
 where kratkamajica = 'AB';
 
 select majica from ostavljena
