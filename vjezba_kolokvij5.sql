@@ -117,3 +117,33 @@ values('plave', 12, 'pulo','luxoria',2022-01-01,2);
 insert into punica (hlace, nausnica, vesta, modelnaocala, trecputa, punac)
 values('crvene', 12, 'pulo','luxoria',2022-01-01,1);
 
+update mladic
+set haljina = 'Osijek';
+
+delete * from ostavljena
+where ogrlica = 17;
+
+select majica from punac
+where prviputa is null;
+
+select a.asocijalno, f.stilfrizura, e.nausnica
+from cura a
+inner join svekar_cura b
+on a.sifra = b.cura
+inner join svekar c
+on c.sifra = b.svekar
+inner join punac d
+on d.svekar = c.sifra
+inner join punica e
+on e.punac = d.sifra
+inner join ostavljena f
+on f.punica = e.sifra
+where d.prviputa is not null
+and c.majica like '%ba%'
+order by e.nausnica desc;
+
+select a.majica, a.carape
+from svekar a
+inner join svekar_cura b 
+on b.svekar = a.sifra 
+where b.svekar is null;
