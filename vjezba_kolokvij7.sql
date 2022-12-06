@@ -134,14 +134,14 @@ where b.zarucnik is null
 
 #mladic, sestra, prijateljica
 
-select f.narukvica, a.stilfrizura, a.gustoca
+select f.narukvica, a.stilfrizura, b.gustoca
 from sestra a 
 inner join prijateljica b 
 on b.sifra = a.prijateljica
 inner join ostavljen c 
 on c.sifra = b.ostavljen
 inner join zarucnik d 
-on d.zarucnik = c.sifra 
+on d.sifra = c.zarucnik 
 inner join zarucnik_mladic e 
 on e.zarucnik = d.sifra 
 inner join mladic f 
