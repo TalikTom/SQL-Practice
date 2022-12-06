@@ -78,3 +78,74 @@ create table sestra (
     foreign key (prijateljica) references prijateljica(sifra)
 );
 
+#prijateljica ostavljen i zarucnik?mladic
+
+insert into prijateljica (gustoca)
+values(14.3);
+insert into prijateljica (gustoca)
+values(14.1);
+insert into prijateljica (gustoca)
+values(14.2);
+
+insert into zarucnik (asocijalno, narukvica, novcica)
+values (1, 124, 15.5);
+insert into zarucnik (asocijalno, narukvica, novcica)
+values (1, 1242, 15.5);
+insert into zarucnik (asocijalno, narukvica, novcica)
+values (1, 1244, 25.5);
+
+insert into ostavljen (introvertno, kratkamajica, prstena, zarucnik)
+values (1, 'crvena', 123, 1);
+insert into ostavljen (introvertno, kratkamajica, prstena, zarucnik)
+values (1, 'crvena', 1232, 2);
+insert into ostavljen (introvertno, kratkamajica, prstena, zarucnik)
+values (1, 'plava', 1243, 1);
+
+
+
+insert into mladic (lipa, narukvica, drugiputa)
+values (14.4, 64, 2022-01-01);
+insert into mladic (lipa, narukvica, drugiputa)
+values (14.4, 64, 2022-01-02);
+insert into mladic (lipa, narukvica, drugiputa)
+values (14.5, 624, 2022-01-03);
+
+insert into zarucnik_mladic (zarucnik, mladic)
+values (1,2);
+insert into zarucnik_mladic (zarucnik, mladic)
+values (2,2);
+insert into zarucnik_mladic (zarucnik, mladic)
+values (2,1);
+
+update punica
+set eura = 15.77;
+
+delete from sestra
+where hlace < 'AB';
+
+select kratkamajica from ostavljen
+where introvertno is null;
+
+select a.asocijalno, a.modelnaocala
+from zarucnik a
+inner join zarucnik_mladic b 
+on a.sifra = b.zarucnik
+where b.zarucnik is null
+
+#mladic, sestra, prijateljica
+
+select f.narukvica, a.stilfrizura, a.gustoca
+from sestra a 
+inner join prijateljica b 
+on b.sifra = a.prijateljica
+inner join ostavljen c 
+on c.sifra = b.ostavljen
+inner join zarucnik d 
+on d.zarucnik = c.sifra 
+inner join zarucnik_mladic e 
+on e.zarucnik = d.sifra 
+inner join mladic f 
+on f.sifra = e.mladic 
+where c.introvertno is not null 
+and d.asocijalno is not null
+order by b.gustoca desc;
