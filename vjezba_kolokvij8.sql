@@ -71,3 +71,73 @@ create table cura (
     vesta varchar(33),
     prijateljica int
 );
+
+#neprijatelj becar muskarac_decko
+
+insert into decko (treciputa, ogrlica, ekstrovertno)
+values (2022-01-01, 123, 1);
+insert into decko (treciputa, ogrlica, ekstrovertno)
+values (2022-01-02, 1223, 1);
+insert into decko (treciputa, ogrlica, ekstrovertno)
+values (2022-01-01, 1243, 1);
+
+insert into muskarac (drugiputa)
+values (2021-05-05);
+insert into muskarac (drugiputa)
+values (2021-05-02);
+insert into muskarac (drugiputa)
+values (2021-05-01);
+
+insert into muskarac_decko (muskarac, decko)
+values (1,1);
+insert into muskarac_decko (muskarac, decko)
+values (1,2);
+insert into muskarac_decko (muskarac, decko)
+values (2,1);
+
+insert into becar (eura, muskarac)
+values (12.2, 1);
+insert into becar (eura, muskarac)
+values (12.2, 2);
+insert into becar (eura, muskarac)
+values (12.3, 1);
+
+insert into neprijatelj (ogrlica, becar)
+values (122, 1);
+insert into neprijatelj (ogrlica, becar)
+values (122, 2);
+insert into neprijatelj (ogrlica, becar)
+values (1223, 1);
+
+update cura
+set indiferentno = false;
+
+delete from brat
+where not novcica = 12.75;
+
+select prviputa from becar
+where treciputa is null;
+
+select a.drugiputa, a.treciputa
+from muskarac a
+inner join muskarac_decko b 
+on a.sifra = b.muskarac 
+where b.muskarac is null;
+
+
+select a.bojakose, f.neprijatelj, e.introvertno
+from decko a 
+inner join muskarac_decko b 
+on a.sifra = b.decko 
+inner join muskarac c 
+on c.sifra = b.muskarac
+inner join becar d 
+on d.muskarac - c.sifra 
+inner join neprijatelj e 
+on e.becar = d.sifra
+inner join brat f 
+on f.neprijatelj = e.sifra 
+where d.treciputa is not null
+and c.drugiputa is not null 
+order by e.introvertno desc;
+
